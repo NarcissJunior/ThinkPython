@@ -1,33 +1,18 @@
 import turtle
 import math
 
-def square(turtou, length):
-    for i in range(500):
-        plus = i * 20
-        distance = length + plus
-        degree = 90
-
-        turtou.fd(distance)
-        turtou.lt(degree)
-
-
-def polygon(turtou, n, length):
-    angle = 360.0 / n
-    polyline(turtou, n, length, angle)
-
-
-def circle(turtou, r):
-    arc(turtou, r, 360)
+ninja = turtle.Turtle()
 
 def polyline(t, n, length, angle):
-    """Desenha n segmentos de reta com o comprimento dado e
-    ângulo (em graus) entre eles. t é um turtle.
+    """Draws n segments of a line based on its length
+     and the angle (degree) between them. t is Turtle instance.
     """
     for i in range(n):
         t.fd(length)
         t.lt(angle)
 
 def arc(t, r, angle):
+    """Draws and arc using polyline basend on its parameters"""
     arc_length = 2 * math.pi * r * angle / 360
     n = int(arc_length / 3) + 1
     step_length = arc_length / n
@@ -56,17 +41,28 @@ def flower(turtou, n, radius, angle):
         petal(turtou, radius, angle)
         turtou.lt(redirect)
 
-ninja = turtle.Turtle()
+def movePointer(turtou, distance):
+    turtou.pu()
+    turtou.fd(distance)
+    turtou.pd()
 
 numberPetals = 7
 radius = 70
 angle = 60
+movePointer(ninja, -100)
 flower(ninja, numberPetals, radius, angle)
 
-#circle(ninja, radius)
-#polygon(ninja, length = 50, polygonsize = 5)
-#square(ninja, length = 50)
-#polyline(ninja, 150, 150, 150)
-turtle.mainloop()
+numberPetals = 10
+radius = 40
+angle = 80
+movePointer(ninja, 150)
+flower(ninja, numberPetals, radius, angle)
 
-##TODO - make an expansive circle :P
+numberPetals = 20
+radius = 140
+angle = 20
+movePointer(ninja, 150)
+flower(ninja, numberPetals, radius, angle)
+
+ninja.hideturtle()
+turtle.mainloop()
