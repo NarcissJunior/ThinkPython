@@ -1,7 +1,3 @@
-import math
-import string
-
-
 def printplus():
     print("+", end=' ')
 
@@ -45,8 +41,6 @@ def printalternator(func_one, func_two, times):
             func_two()
 
 def print_square():
-    #printalternator(printmultiplier(printmiddle, 4), printheader, 5)
-
     for x in range(5):
         if (x % 2):
             printmultiplier(printmiddle, 4)
