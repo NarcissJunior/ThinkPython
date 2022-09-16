@@ -1,0 +1,31 @@
+import time
+
+def do_n(n, coolnumber):
+    coolnumber = int(coolnumber)
+    minutes = coolnumber / 60
+    hours = minutes / 60
+    days = hours / 24
+    months = days / 30
+    years = months / 12
+    decades = years / 10
+    centuries = decades / 10
+    mileniuns = centuries / 10
+
+    print("coolnumber", coolnumber)
+    print("minutes", minutes)
+    print("hours", hours)
+    print("days", days)
+    print("months", months)
+    print("years", years)
+    print("decades", decades)
+    print("centuries", centuries)
+    print("mileniuns", mileniuns)
+    
+    # while(n >= 0):
+    #     coolnumber = coolnumber/60
+    #     print(coolnumber)
+    #     n = n-1
+    print("job done here!")
+
+
+do_n(3, time.time())
