@@ -1,31 +1,42 @@
 import time
 
-def do_n(n, coolnumber):
-    coolnumber = int(coolnumber)
-    minutes = coolnumber / 60
+def do_n(n):    
+    while(n >= 0):
+        print(n)
+        n = n-1
+    print("job done here!")
+
+def show_date(start_time):
+    start_time = int(start_time)
+    minutes = start_time / 60
     hours = minutes / 60
     days = hours / 24
     months = days / 30
     years = months / 12
     decades = years / 10
-    centuries = decades / 10
-    mileniuns = centuries / 10
 
-    print("coolnumber", coolnumber)
+    print("start_time", start_time)
     print("minutes", minutes)
     print("hours", hours)
     print("days", days)
     print("months", months)
     print("years", years)
     print("decades", decades)
-    print("centuries", centuries)
-    print("mileniuns", mileniuns)
-    
-    # while(n >= 0):
-    #     coolnumber = coolnumber/60
-    #     print(coolnumber)
-    #     n = n-1
-    print("job done here!")
+    print("\n\n")
 
+def show_date_recursion(number, n):
+    if n == 2:
+        print("seconds:", number)
+    if n == 0:
+        number = number / 24
+        print("last result:", number)
+        return
+    else:
+        number = number / 60
+        print("result:", number)
+        show_date_recursion(number, n-1)
 
-do_n(3, time.time())
+#do_n(3)
+
+show_date(time.time())
+show_date_recursion(int(time.time()), 2)
