@@ -1,10 +1,5 @@
 import time
-
-def do_n(n):    
-    while(n >= 0):
-        print(n)
-        n = n-1
-    print("job done here!")
+from tkinter import N
 
 def show_date(start_time):
     start_time = int(start_time)
@@ -29,14 +24,40 @@ def show_date_recursion(number, n):
         print("seconds:", number)
     if n == 0:
         number = number / 24
-        print("last result:", number)
+        print("days:", number)
         return
     else:
         number = number / 60
         print("result:", number)
         show_date_recursion(number, n-1)
 
-#do_n(3)
+def check_fermat(a: int, b: int, c: int, n: int) -> str:
+    if n < 2:
+        print("N must be higher than 2")
+        return
 
-show_date(time.time())
-show_date_recursion(int(time.time()), 2)
+    first_result = a**n
+    second_result = b**n
+    third_result = c**n
+    comparison = first_result + second_result
+    if comparison == third_result:
+        print("Holy smokes, Fermat was wrong!")
+    else:
+        print("No, that doesn't work.")
+
+def check_fermat_input():
+    a_input = input("Digit A:")
+    b_input = input("Digit B:")
+    c_input = input("Digit C:")
+    n_input = input("Digit N:")
+    check_fermat(int(float(a_input)), int(float(b_input)), int(float(c_input)), int(float(n_input)))
+
+#show_date(time.time())
+#show_date_recursion(int(time.time()), 2)
+
+a = 2
+b = 2
+c = 3
+n = 2
+#check_fermat(a, b, c, n)
+check_fermat_input()
