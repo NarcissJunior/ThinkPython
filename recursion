@@ -1,5 +1,13 @@
 import time
-from tkinter import N
+
+fermat_a = 2
+fermat_b = 2
+fermat_c = 3
+fermat_n = 2
+
+triangle_a = 2
+triangle_b = 2
+triangle_c = 4
 
 def show_date(start_time):
     start_time = int(start_time)
@@ -52,12 +60,24 @@ def check_fermat_input():
     n_input = input("Digit N:")
     check_fermat(int(float(a_input)), int(float(b_input)), int(float(c_input)), int(float(n_input)))
 
-#show_date(time.time())
-#show_date_recursion(int(time.time()), 2)
+def is_triangle(a: int, b: int, c: int, n: int) -> str:
+    if (a <= b + c) and (b <= a + c) and (c <= a + b):
+        print("That's a triangle!!")
+    else:
+        print("That's NOT a triangle!")
 
-a = 2
-b = 2
-c = 3
-n = 2
-#check_fermat(a, b, c, n)
+
+def is_triangle_input():
+    a_input = input("Digit first triangle size:")
+    b_input = input("Digit second triangle size:")
+    c_input = input("Digit third triangle size:")
+    is_triangle(int(float(a_input)), int(float(b_input)), int(float(c_input)))
+
+show_date(time.time())
+show_date_recursion(int(time.time()), 2)
+
+check_fermat(fermat_a, fermat_b, fermat_c, fermat_n)
 check_fermat_input()
+
+is_triangle(triangle_a, triangle_b, triangle_c, 2)
+is_triangle_input()
